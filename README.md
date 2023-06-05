@@ -1,0 +1,20 @@
+# Kodluyoruz Code16 Bootcamp 2. Hafta Ödevi
+- Main dosyasını çalıştırarak proje ayağa kaldırılabilir.
+- Repository katmanı yazılmamıştır. Case gereksinimlerini karşılayacak şekilde Main üzerinde oluşturulan nesneler ile case denenmiştir.
+- Katmanlı mimari uygulanmıştır.
+    - Entities katmanında oluşturulan abstract classlar
+      - Car
+      - User
+    - Entities katmanında oluşturulan concretes classlar
+      - Company (extends User)
+      - Civilian (extends User)
+      - Admin (extends User)
+      - Sedan (extends Car)
+      - SUV (extends Car)
+      - Hatchback (extends Car)
+      - ATV (extends Car)
+      - FourWheelDrive (extends Car)
+    - Business katmanında oluşturulan abstract classlar
+      - RentService
+    - Business katmanında oluşturulan concretes classlar
+      - RentManager (implements RentService)
