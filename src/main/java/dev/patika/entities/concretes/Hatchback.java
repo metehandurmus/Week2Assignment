@@ -3,7 +3,15 @@ package dev.patika.entities.concretes;
 import dev.patika.entities.abstracts.Car;
 
 public class Hatchback extends Car {
-    public Hatchback(double baggageCapacity, double dailyRentalFee, String color) {
-        super(baggageCapacity, dailyRentalFee, color, "Hatchback");
+    private Hatchback(Builder builder) {
+        super(builder);
+    }
+
+    public static class Builder extends Car.Builder {
+        @Override
+        public Hatchback build() {
+            this.setTypeName("Hatchback");
+            return new Hatchback(this);
+        }
     }
 }

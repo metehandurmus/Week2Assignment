@@ -6,9 +6,8 @@ public class SUV extends Car {
     private int age;
     private final double AGE_CONSTANT = 150;
 
-    public SUV(double baggageCapacity, double dailyRentalFee, String color, int age) {
-        super(baggageCapacity, dailyRentalFee, color, "SUV");
-        this.age = age;
+    private SUV(Builder builder) {
+        super(builder);
     }
 
     @Override
@@ -22,5 +21,23 @@ public class SUV extends Car {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public static class Builder extends Car.Builder {
+        private int age;
+
+        @Override
+        public Builder setAge(int age) {
+            this.age = age;
+            return this;
+        }
+
+        @Override
+        public SUV build() {
+            this.setTypeName("SUV");
+            SUV suv = new SUV(this);
+            suv.age = this.age;
+            return suv;
+        }
     }
 }

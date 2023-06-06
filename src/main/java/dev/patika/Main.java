@@ -2,6 +2,7 @@ package dev.patika;
 
 import dev.patika.business.abstracts.RentService;
 import dev.patika.business.concretes.RentManager;
+import dev.patika.entities.abstracts.Car;
 import dev.patika.entities.abstracts.User;
 import dev.patika.entities.concretes.*;
 
@@ -13,13 +14,42 @@ public class Main {
         Company company = new Company("Şirket", 500000);
         Admin admin = new Admin("Admin");
 
-        SUV suv = new SUV(20, 200, "Red", 10);
-        Hatchback hatchback = new Hatchback(20, 200, "Red");
-        Sedan sedan = new Sedan(20, 200, "Red");
-        FourWheelDrive fourWheelDrive = new FourWheelDrive(50, 2000, "Blue");
-        ATV atv = new ATV(50, 1000, "Blue");
+        Car suv = new SUV
+                .Builder()
+                .setColor("Red")
+                .setDailyRentalFee(200)
+                .setBaggageCapacity(20)
+                .setAge(10)
+                .build();
 
-        User user = civilian; // yalnızca bu satırı değiştirerek aşağıdaki işlemleri dinamikleştirebilirsiniz.
+        Car hatchback = new Hatchback
+                .Builder()
+                .setColor("Red")
+                .setDailyRentalFee(200)
+                .setBaggageCapacity(20)
+                .build();
+
+        Car sedan = new Sedan.Builder()
+                .setColor("Red")
+                .setDailyRentalFee(200)
+                .setBaggageCapacity(20)
+                .build();
+
+        Car fourWheelDrive = new FourWheelDrive
+                .Builder()
+                .setColor("Blue")
+                .setDailyRentalFee(2000)
+                .setBaggageCapacity(50)
+                .build();
+
+        Car atv = new ATV.Builder()
+                .setColor("Blue")
+                .setDailyRentalFee(1000)
+                .setBaggageCapacity(50)
+                .build();
+
+
+        User user = company; // yalnızca bu satırı değiştirerek aşağıdaki işlemleri dinamikleştirebilirsiniz.
 
         System.out.println("Başlangıç bakiyesi: " + user.getBalance() + "$");
 

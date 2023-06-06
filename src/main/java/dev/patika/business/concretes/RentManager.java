@@ -19,11 +19,12 @@ public class RentManager implements RentService {
     @Override
     public boolean UserRentsACar(User user, Car car, String type) {
         System.out.println();
+
         // Business Rule
-        if (rentBusinessRules.HasMoneyForRenting(user, car, type)) return false;
         if (rentBusinessRules.IsTypeFalse(type)) return false;
         if (rentBusinessRules.IsCivilianAndRentNotHatchback(user, car)) return false;
         if (rentBusinessRules.IsMonthlyAndRentHatchback(user, car, type)) return false;
+        if (rentBusinessRules.HasMoneyForRenting(user, car, type)) return false;
 
         // Ara işlemler
         rentServiceHelper.PayToRentByUser(user, car, type);

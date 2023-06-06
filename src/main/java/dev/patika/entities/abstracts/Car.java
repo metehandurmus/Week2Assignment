@@ -1,5 +1,7 @@
 package dev.patika.entities.abstracts;
 
+import dev.patika.entities.concretes.Sedan;
+
 public abstract class Car {
     private double baggageCapacity;
     private double dailyRentalFee;
@@ -9,11 +11,11 @@ public abstract class Car {
     private String color;
     private String typeName;
 
-    public Car(double baggageCapacity, double dailyRentalFee, String color, String typeName) {
-        this.baggageCapacity = baggageCapacity;
-        this.dailyRentalFee = dailyRentalFee;
-        this.color = color;
-        this.typeName = typeName;
+    protected Car(Builder builder) {
+        this.baggageCapacity = builder.baggageCapacity;
+        this.dailyRentalFee = builder.dailyRentalFee;
+        this.color = builder.color;
+        this.typeName = builder.typeName;
     }
 
     public double getBaggageCapacity() {
@@ -46,5 +48,37 @@ public abstract class Car {
 
     public double getMounthlyRentalFee() {
         return this.dailyRentalFee * 30;
+    }
+
+    public abstract static class Builder {
+        protected double baggageCapacity;
+        protected double dailyRentalFee;
+        protected String color;
+        protected String typeName;
+
+        public Builder setBaggageCapacity(double baggageCapacity) {
+            this.baggageCapacity = baggageCapacity;
+            return this;
+        }
+
+        public Builder setDailyRentalFee(double dailyRentalFee) {
+            this.dailyRentalFee = dailyRentalFee;
+            return this;
+        }
+
+        public Builder setColor(String color) {
+            this.color = color;
+            return this;
+        }
+
+        public void setTypeName(String typeName) {
+            this.typeName = typeName;
+        }
+
+        public Builder setAge(int age) {
+            return this;
+        }
+
+        public abstract Car build();
     }
 }

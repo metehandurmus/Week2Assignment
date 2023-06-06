@@ -4,7 +4,15 @@ import dev.patika.entities.abstracts.Car;
 
 public class Sedan extends Car {
 
-    public Sedan(double baggageCapacity, double dailyRentalFee, String color) {
-        super(baggageCapacity, dailyRentalFee, color, "Sedan");
+    private Sedan(Builder builder) {
+        super(builder);
+    }
+
+    public static class Builder extends Car.Builder {
+        @Override
+        public Sedan build() {
+            this.setTypeName("Sedan");
+            return new Sedan(this);
+        }
     }
 }
