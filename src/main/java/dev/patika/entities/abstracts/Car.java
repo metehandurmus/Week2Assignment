@@ -12,9 +12,9 @@ public abstract class Car {
     private String typeName;
 
     protected Car(Builder builder) {
-        this.baggageCapacity = builder.baggageCapacity;
-        this.dailyRentalFee = builder.dailyRentalFee;
-        this.color = builder.color;
+        this.setBaggageCapacity(builder.baggageCapacity);
+        this.setDailyRentalFee(builder.dailyRentalFee);
+        this.setColor(builder.color);
         this.typeName = builder.typeName;
     }
 
